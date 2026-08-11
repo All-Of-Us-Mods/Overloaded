@@ -1,15 +1,15 @@
-﻿using BepInEx;
+﻿using System.Linq;
+using BepInEx;
 using BepInEx.Unity.IL2CPP;
 using HarmonyLib;
 using Reactor;
 using Reactor.Networking;
 using Reactor.Networking.Attributes;
 using Reactor.Utilities;
-using System.Linq;
 
 namespace CrowdedMod;
 
-[BepInAutoPlugin("xyz.crowdedmods.crowdedmod")]
+[BepInAutoPlugin("dev.allofus.overloaded", "Overloaded")]
 [BepInProcess("Among Us.exe")]
 [BepInDependency(ReactorPlugin.Id)]
 [ReactorModFlags(ModFlags.RequireOnAllClients)]
