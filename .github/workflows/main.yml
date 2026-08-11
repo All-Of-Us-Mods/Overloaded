@@ -4,30 +4,30 @@ on: [ "push", "pull_request" ]
 
 jobs:
   build:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v6
         with:
           submodules: true
 
       - name: Setup .NET
-        uses: actions/setup-dotnet@v2
+        uses: actions/setup-dotnet@v6
         with:
           dotnet-version: 8.x
 
       - name: Run the Cake script
-        uses: cake-build/cake-action@v1
+        uses: cake-build/cake-action@v2
         with:
           verbosity: Diagnostic
 
       - uses: actions/upload-artifact@v4
         with:
-          name: CrowdedMod.dll
-          path: src/CrowdedMod/bin/Release/net6.0/CrowdedMod.dll
+          name: Overloaded.dll
+          path: src/CrowdedMod/bin/Release/net6.0/Overloaded.dll
 
-      - uses: softprops/action-gh-release@v1
+      - uses: softprops/action-gh-release@v2
         if: github.ref_type == 'tag'
         with:
           draft: true
-          files: src/CrowdedMod/bin/Release/net6.0/CrowdedMod.dll
+          files: src/CrowdedMod/bin/Release/net6.0/Overloaded.dll
