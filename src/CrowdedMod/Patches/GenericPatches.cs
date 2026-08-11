@@ -1,13 +1,10 @@
 using System.Linq;
-using AmongUs.GameOptions;
-using CrowdedMod.Net;
 using HarmonyLib;
 using Hazel;
 using Il2CppInterop.Runtime;
 using Il2CppInterop.Runtime.InteropTypes.Arrays;
 using Il2CppSystem.Reflection;
 using InnerNet;
-using Reactor.Networking.Rpc;
 using Reactor.Utilities;
 using UnityEngine;
 
@@ -19,8 +16,8 @@ internal static class GenericPatches
                                                    GameData.Instance == null ||
                                                    GameData.Instance.PlayerCount <= Palette.PlayerColors.Length;
 
-    [HarmonyPatch(typeof(PlayerControl), nameof(PlayerControl.CmdCheckColor))]
-    public static class PlayerControlCmdCheckColorPatch
+    [HarmonyPatch(typeof(PlayerControl), nameof(PlayerControl.CheckColor))]
+    public static class PlayerControlCheckColorPatch
     {
         public static bool Prefix(PlayerControl __instance, [HarmonyArgument(0)] byte colorId)
         {
@@ -29,7 +26,7 @@ internal static class GenericPatches
                 return true;
             }
 
-            Rpc<SetColorRpc>.Instance.Send(__instance, colorId);
+            __instance.RpcSetColor(colorId);
             return false;
         }
     }
