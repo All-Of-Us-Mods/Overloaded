@@ -45,7 +45,7 @@ internal static class CreateGameOptionsPatches
             {
                 __instance.capacityOption.Increment = 5;
                 __instance.capacityOption.Decrease();
-                __instance.capacitySetting.Increment = 1;
+                __instance.capacityOption.Increment = 1;
             }));
             
             _doublePlusButton = Object.Instantiate(__instance.capacityOption.PlusBtn, __instance.capacityOption.PlusBtn.transform.parent);
@@ -58,7 +58,7 @@ internal static class CreateGameOptionsPatches
             {
                 __instance.capacityOption.Increment = 5;
                 __instance.capacityOption.Increase();
-                __instance.capacitySetting.Increment = 1;
+                __instance.capacityOption.Increment = 1;
             }));
 
             // create min and max buttons
