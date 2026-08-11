@@ -12,11 +12,11 @@ namespace CrowdedMod;
 [BepInAutoPlugin("dev.allofus.overloaded", "Overloaded")]
 [BepInProcess("Among Us.exe")]
 [BepInDependency(ReactorPlugin.Id)]
-[ReactorModFlags(ModFlags.RequireOnAllClients)]
+[ReactorModFlags(ModFlags.RequireOnHost)]
 [BepInDependency("gg.reactor.debugger", BepInDependency.DependencyFlags.SoftDependency)]
 public partial class CrowdedModPlugin : BasePlugin
 {
-    public const int MaxPlayers = 254; // allegedly. should stick to 127 tho
+    public const int MaxPlayers = 127; // could be 254, we will stick to 127 for safety
     public const int MaxImpostors = MaxPlayers / 2;
 
     public static bool ForceDisableFreeColor { get; set; } = false;
@@ -48,10 +48,10 @@ public partial class CrowdedModPlugin : BasePlugin
         }
     }
 
-    private static bool IsVanillaServer(IRegionInfo regionInfo)
-        => regionInfo != null &&
-        regionInfo.TranslateName is
-        StringNames.ServerAS or
-        StringNames.ServerEU or
-        StringNames.ServerNA;
+    private static bool IsVanillaServer(IRegionInfo? regionInfo)
+        => regionInfo is { TranslateName: 
+            StringNames.ServerAS or
+            StringNames.ServerEU or
+            StringNames.ServerNA
+        };
 }
