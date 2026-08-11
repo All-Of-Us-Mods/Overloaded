@@ -71,6 +71,11 @@ internal static class GenericPatches
         }
     }
 
+    /*
+     August 11th 2026 - XtraCube:
+        AreInvalid is not used in the game at all as of 2026.6.5
+        I'll comment this out until its needed. 
+     
     // I did not find a use of this method, but still patching for future updates
     // maxExpectedPlayers is unknown, looks like server code tbh
     [HarmonyPatch(typeof(GameOptionsData), nameof(GameOptionsData.AreInvalid))]
@@ -85,6 +90,7 @@ internal static class GenericPatches
                    __instance.PlayerSpeedMod is <= 0f or > 3f;
         }
     }
+    */
 
     [HarmonyPatch(typeof(GameStartManager), nameof(GameStartManager.Update))]
     public static class GameStartManagerUpdatePatch
