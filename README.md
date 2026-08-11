@@ -40,4 +40,4 @@ This mod unlocks the possibility for more than 15 players to join in an Among Us
 
 > To make sure everything works correctly, make sure your Main Menu displays the Overloaded mod like the picture below.
 
-![Main Menu with Overloaded](https://github.com/All-Of-Us-Mods/Overloaded/tree/master/imasges/menu.png)
+![Main Menu with Overloaded](https://github.com/All-Of-Us-Mods/Overloaded/blob/master/images/menu.png?raw=true)
