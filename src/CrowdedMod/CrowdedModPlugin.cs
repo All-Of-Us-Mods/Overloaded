@@ -19,8 +19,6 @@ public partial class CrowdedModPlugin : BasePlugin
     public const int MaxPlayers = 127; // could be 254, we will stick to 127 for safety
     public const int MaxImpostors = MaxPlayers / 2;
 
-    public static bool ForceDisableFreeColor { get; set; } = false;
-
     private Harmony Harmony { get; } = new(Id);
 
     public override void Load()

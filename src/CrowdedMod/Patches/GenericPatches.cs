@@ -12,20 +12,12 @@ namespace CrowdedMod.Patches;
 
 internal static class GenericPatches
 {
-    private static bool ShouldDisableColorPatch => CrowdedModPlugin.ForceDisableFreeColor ||
-                                                   GameData.Instance == null ||
-                                                   GameData.Instance.PlayerCount <= Palette.PlayerColors.Length;
 
     [HarmonyPatch(typeof(PlayerControl), nameof(PlayerControl.CheckColor))]
     public static class PlayerControlCheckColorPatch
     {
         public static bool Prefix(PlayerControl __instance, [HarmonyArgument(0)] byte colorId)
         {
-            if (ShouldDisableColorPatch)
-            {
-                return true;
-            }
-
             __instance.RpcSetColor(colorId);
             return false;
         }
@@ -36,11 +28,6 @@ internal static class GenericPatches
     {
         public static void Postfix(PlayerTab __instance)
         {
-            if (ShouldDisableColorPatch)
-            {
-                return;
-            }
-
             __instance.currentColorIsEquipped = false;
         }
     }
@@ -50,11 +37,6 @@ internal static class GenericPatches
     {
         public static bool Prefix(PlayerTab __instance)
         {
-            if (ShouldDisableColorPatch)
-            {
-                return true;
-            }
-
             __instance.AvailableColors.Clear();
             for (var i = 0; i < Palette.PlayerColors.Count; i++)
             {
