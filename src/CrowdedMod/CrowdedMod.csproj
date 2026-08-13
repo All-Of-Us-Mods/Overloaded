@@ -2,7 +2,7 @@
 
     <PropertyGroup>
         <TargetFramework>net6.0</TargetFramework>
-        <Version>3.0.0</Version>
+        <Version>3.0.1</Version>
         <Authors>All Of Us, CrowdedMods, andry08</Authors>
         <AssemblyName>Overloaded</AssemblyName>
         <LangVersion>latest</LangVersion>
