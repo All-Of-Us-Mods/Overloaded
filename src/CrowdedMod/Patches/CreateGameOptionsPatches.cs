@@ -91,13 +91,18 @@ internal static class CreateGameOptionsPatches
                 __instance.capacityOption.Increase();
                 __instance.capacityOption.Increment = 1;
             }));
+
+            // Update button states
+            __instance.ValueChanged(__instance.capacityOption);
+
+            Info("Finished creating new buttons for player count picker.");
         }
     }
 
     [HarmonyPatch(typeof(CreateGameOptions), nameof(CreateGameOptions.ValueChanged))]
     public static class CreateGameOptions_ValueChanged
     {
-        public static void Postfix(CreateGameOptions __instance, OptionBehaviour option)
+        public static void Postfix(OptionBehaviour option)
         {
             var numOpt = option.Cast<NumberOption>();
             if (!numOpt) return;
@@ -117,6 +122,8 @@ internal static class CreateGameOptionsPatches
                 _minButton.SetInteractable(false);
                 _doubleMinusButton.SetInteractable(false);
             }
+
+            Info("Updated button states!");
         }
     }
 }

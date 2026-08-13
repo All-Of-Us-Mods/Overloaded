@@ -11,6 +11,7 @@ internal static class MiniGamePatches
         public static void Postfix(SecurityLogger __instance)
         {
             __instance.Timers = new Il2CppStructArray<float>(CrowdedModPlugin.MaxPlayers);
+            Info("Patched SecurityLogger Timers");
         }
     }
 }

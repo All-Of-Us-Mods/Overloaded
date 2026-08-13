@@ -11,6 +11,7 @@ internal static class PagingPatches
         public static void Postfix(MeetingHud __instance)
         {
             __instance.gameObject.AddComponent<MeetingHudPagingBehaviour>().meetingHud = __instance;
+            Info("Added paging behaviour to meeting hud!");
         }
     }
 
@@ -20,6 +21,7 @@ internal static class PagingPatches
         public static void Postfix(ShapeshifterMinigame __instance)
         {
             __instance.gameObject.AddComponent<ShapeShifterPagingBehaviour>().shapeshifterMinigame = __instance;
+            Info("Added paging behaviour to meeting shifter!");
         }
     }
 
@@ -29,6 +31,7 @@ internal static class PagingPatches
         public static void Postfix(VitalsMinigame __instance)
         {
             __instance.gameObject.AddComponent<VitalsPagingBehaviour>().vitalsMinigame = __instance;
+            Info("Added vitals paging behaviour to meeting vitals!");
         }
     }
 }
