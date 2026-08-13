@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿global using static Reactor.Utilities.Logger<Reactor.ReactorPlugin>;
+using System.Linq;
 using BepInEx;
 using BepInEx.Unity.IL2CPP;
 using HarmonyLib;
@@ -28,6 +29,7 @@ public partial class CrowdedModPlugin : BasePlugin
         Harmony.PatchAll();
 
         RemoveVanillaServer();
+        Info("Finished loading Overloaded!");
     }
 
     public static void RemoveVanillaServer()
@@ -44,6 +46,8 @@ public partial class CrowdedModPlugin : BasePlugin
             var region = defaultRegion.FirstOrDefault();
             sm.SetRegion(region);
         }
+
+        Info("Finished removing Vanilla Servers!");
     }
 
     private static bool IsVanillaServer(IRegionInfo? regionInfo)
