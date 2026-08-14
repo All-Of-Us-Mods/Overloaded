@@ -19,13 +19,6 @@ internal static class CreateGameOptionsPatches
     {
         public static void Postfix(CreateGameOptions __instance)
         {
-            // set new valid range
-            var newRange = new IntRange(1, CrowdedModPlugin.MaxPlayers);
-            var newFloatRange = new FloatRange(1, CrowdedModPlugin.MaxPlayers);
-            
-            __instance.capacitySetting.ValidRange = newRange;
-            __instance.capacityOption.ValidRange  = newFloatRange;
-            
             // move stuff to make space for -5 and +5 buttons
             foreach (Il2CppSystem.Object obj in __instance.capacityOption.transform)
             {
@@ -92,10 +85,21 @@ internal static class CreateGameOptionsPatches
                 __instance.capacityOption.Increment = 1;
             }));
 
-            // Update button states
-            __instance.ValueChanged(__instance.capacityOption);
-
             Info("Finished creating new buttons for player count picker.");
+        }
+    }
+
+    [HarmonyPatch(typeof(CreateGameOptions), nameof(CreateGameOptions.Show))]
+    public static class CreateGameOptions_Show
+    {
+        public static void Prefix(CreateGameOptions __instance)
+        {
+            // set new valid range
+            var newRange = new IntRange(1, CrowdedModPlugin.MaxPlayers);
+            var newFloatRange = new FloatRange(1, CrowdedModPlugin.MaxPlayers);
+            
+            __instance.capacitySetting.ValidRange = newRange;
+            __instance.capacityOption.ValidRange  = newFloatRange;
         }
     }
 
