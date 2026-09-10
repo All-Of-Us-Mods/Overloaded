@@ -49,11 +49,15 @@ public class AbstractPagingBehaviour : MonoBehaviour
 
     /// <summary>
     /// Loops around if you go over the limits.<br/>
-    /// Attempting to go up a page while on the first page will take you to the last page and vice versa.
+    /// Attempting to go back a page while on the first page will take you to the last page and vice versa.
     /// </summary>
     public virtual void Cycle(bool increment)
     {
-        var change = increment ? 1 : -1;
-        PageIndex = Mathf.Clamp(PageIndex + change, 0, MaxPageIndex);
+        PageIndex += increment ? 1 : -1;
+
+        if (PageIndex < 0)
+            PageIndex = MaxPageIndex;
+        else if (PageIndex > MaxPageIndex)
+            PageIndex = 0;
     }
 }

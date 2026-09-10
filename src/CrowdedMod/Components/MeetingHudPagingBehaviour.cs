@@ -25,11 +25,13 @@ public class MeetingHudPagingBehaviour : AbstractPagingBehaviour
     {
         base.Update();
 
-        if (meetingHud.state is MeetingHud.VoteStates.Animating or MeetingHud.VoteStates.Proceeding ||
-            meetingHud.TimerText.text.Contains($" ({PageIndex + 1}/{MaxPageIndex + 1})"))
+        if (meetingHud.state is MeetingHud.MeetingStates.Animating or MeetingHud.MeetingStates.Proceeding)
             return;
 
-        meetingHud.TimerText.text += $" ({PageIndex + 1}/{MaxPageIndex + 1})";
+        var timerText = $" ({PageIndex + 1}/{MaxPageIndex + 1})";
+
+        if (meetingHud.TimerText.text.Contains(timerText))
+            meetingHud.TimerText.text += timerText;
     }
 
     public override void OnPageChanged()
