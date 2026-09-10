@@ -30,7 +30,7 @@ public class MeetingHudPagingBehaviour : AbstractPagingBehaviour
 
         var timerText = $" ({PageIndex + 1}/{MaxPageIndex + 1})";
 
-        if (meetingHud.TimerText.text.Contains(timerText))
+        if (!meetingHud.TimerText.text.Contains(timerText))
             meetingHud.TimerText.text += timerText;
     }
 
