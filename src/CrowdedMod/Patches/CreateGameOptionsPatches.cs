@@ -85,6 +85,7 @@ internal static class CreateGameOptionsPatches
                 __instance.capacityOption.Increment = 1;
             }));
 
+            __instance.ValueChanged(__instance.capacityOption);
             Info("Finished creating new buttons for player count picker.");
         }
     }

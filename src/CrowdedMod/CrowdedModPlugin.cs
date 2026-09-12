@@ -1,4 +1,4 @@
-﻿global using static Reactor.Utilities.Logger<Reactor.ReactorPlugin>;
+﻿global using static Reactor.Utilities.Logger<CrowdedMod.CrowdedModPlugin>;
 using System.Linq;
 using BepInEx;
 using BepInEx.Unity.IL2CPP;
