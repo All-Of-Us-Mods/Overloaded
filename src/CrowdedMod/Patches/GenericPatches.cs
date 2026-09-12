@@ -10,7 +10,6 @@ namespace CrowdedMod.Patches;
 
 internal static class GenericPatches
 {
-
     [HarmonyPatch(typeof(PlayerControl), nameof(PlayerControl.CheckColor))]
     public static class PlayerControlCheckColorPatch
     {
@@ -35,7 +34,11 @@ internal static class GenericPatches
     {
         public static bool Prefix(PlayerTab __instance)
         {
+            if (PlayerControl.AllPlayerControls.Count <= Palette.PlayerColors.Count)
+                return true;
+
             __instance.AvailableColors.Clear();
+
             for (var i = 0; i < Palette.PlayerColors.Count; i++)
             {
                 if (!PlayerControl.LocalPlayer || PlayerControl.LocalPlayer.CurrentOutfit.ColorId != i)
