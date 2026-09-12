@@ -6,7 +6,7 @@ This mod unlocks the possibility for more than 15 players to join in an Among Us
 
 ## Changes from CrowdedMod
 
-- Updated to support 2026.6.5 version of Among Us.
+- Updated to support 2026.8.18 version of Among Us.
 - Removed `RequireOnAllClients` flag to allow Host Only operation.
 - Rebranded as "Overloaded" to avoid confusion with CrowdedMod
 
@@ -20,7 +20,7 @@ This mod unlocks the possibility for more than 15 players to join in an Among Us
 ### Android
 
 1. Download the [Starlight App](https://play.google.com/store/apps/details?id=dev.allofus.starlight) from Google Play.
-2. Create a profile and add the Overloaded mod.
+2. Create a profile and add [the Overloaded mod](starlight://mods/dev.allofus.overloaded).
 3. Launch the game.
 
 ### PC
