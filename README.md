@@ -1,3 +1,5 @@
+[![Starlight badge](https://img.shields.io/badge/Download%20On-Starlight-d3b65e?style=for-the-badge)](https://starlight.allofus.dev/mods/dev.allofus.overloaded)
+
 # Overloaded
 
 > This mod is a fork of CrowdedMod! Thanks to the Crowded team for developing the original version!
